@@ -9,10 +9,10 @@ def get_mask_card_number(card_number: str) -> Optional[str]:
 
 def get_mask_account(account_number: str) -> Optional[str]:
     """Функция принимает номер счета и маскирует его"""
-    if account_number.isdigit():
+    if len(account_number) == 20 and account_number.isdigit():
         return f"**{account_number[-4:]}"
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(get_mask_account("73654108430135874305"))
     print(get_mask_card_number("7000792289606361"))

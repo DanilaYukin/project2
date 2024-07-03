@@ -1,4 +1,4 @@
-def filter_by_state(dictionary_list: list[dict : str | int], state: str = "EXECUTED") -> list[dict : str | int]:
+def filter_by_state(dictionary_list: list[dict:str, int], state: str = "EXECUTED") -> list[dict:str, int]:
     """Функция принимает на вход список словарей и возвращает новый список
     в котором state соответсвует принимаемому значению"""
     new_list = []

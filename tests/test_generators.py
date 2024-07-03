@@ -11,11 +11,9 @@ def test_transaction_descriptions(transactions, transaction_des):
     description = transaction_descriptions(transactions)
     for expected in transaction_des:
         assert next(description) == expected
-        assert next(description) == expected
 
 
 def test_card_number_generator(transactions, number_generator):
     generator = card_number_generator(1, 5)
     for card in number_generator:
-        assert next(generator) == card
         assert next(generator) == card

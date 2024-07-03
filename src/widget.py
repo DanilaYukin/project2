@@ -1,6 +1,6 @@
 from typing import Optional
 
-import masks
+from src import masks
 
 
 def mask_account_card(cards_number: str) -> Optional[str]:

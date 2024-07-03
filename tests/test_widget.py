@@ -4,8 +4,7 @@ from src.widget import get_data, mask_account_card
 
 
 @pytest.mark.parametrize(
-    "card",
-    "card_result",
+    "card, card_result",
     [
         ("Maestro 1596837868705199", "Maestro 1596 83** **** 5199"),
         ("Счет 64686473678894779589", "Счет **9589"),

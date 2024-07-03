@@ -3,8 +3,8 @@ from src.generators import filter_by_currency, transaction_descriptions, card_nu
 
 def test_filter_by_currency(transactions):
     currency = filter_by_currency(transactions, "USD")
-    assert next(currency) == 939719570
-    assert next(currency) == 142264268
+    assert next(currency)['id'] == 939719570
+    assert next(currency)['id'] == 142264268
 
 
 def test_transaction_descriptions(transactions, transaction_des):

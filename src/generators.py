@@ -51,9 +51,9 @@ def filter_by_currency(transactions, currency) -> int:
     """Функция принимает на вход список словарей и
     возвращает id с валютой USD"""
 
-    for key in transactions:
-        if key["operationAmount"]["currency"]["name"] == currency:
-            yield key
+    for transaction in transactions:
+        if transaction["operationAmount"]["currency"]["name"] == currency:
+            yield transaction
 
 
 def transaction_descriptions(transactions):

@@ -11,12 +11,16 @@ def log(filename: Any = None) -> Callable:
             try:
                 result = func(*args, **kwargs)
                 log_message = "my_function ok\n"
-
+                if filename:
+                    with open(filename, "a") as file:
+                        file.write(log_message)
+                else:
+                    print(log_message)
             except Exception as e:
                 result = None
                 log_message = f"my_function error: {e}. Inputs {args}, {kwargs} \n"
                 if filename:
-                    with open(filename, "a", encoding="utf-8") as file:
+                    with open(filename, "a") as file:
                         file.write(log_message)
                 else:
                     print(log_message)
@@ -28,10 +32,10 @@ def log(filename: Any = None) -> Callable:
     return decorator
 
 
-@log(filename="mylog.txt")
+@log()
 def function(x, y):
     return x / y
 
 
 if __name__ == "__main__":
-    print(function(2, 0))
+    print(function(2, 1))

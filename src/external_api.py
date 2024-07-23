@@ -27,7 +27,7 @@ if __name__ == '__main__':
         {
             "id": 41428829,
             "state": "EXECUTED",
-            "date": "2019-07-03T18:35:29.512364",
+            "data": "2019-07-03T18:35:29.512364",
             "operationAmount": {
                 "amount": "8221.37",
                 "currency": {

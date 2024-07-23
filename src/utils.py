@@ -18,4 +18,4 @@ def get_transaction_list(my_file: str) -> list:
 
 
 if __name__ == "__main__":
-    print(get_transaction_list("..\\data\\operations.json"))
+    print(get_transaction_list("../date\\operations.json"))

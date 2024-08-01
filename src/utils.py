@@ -1,5 +1,6 @@
 import json
 import logging
+import pandas as pd
 
 logger = logging.getLogger('utils')
 logger.setLevel(logging.INFO)
@@ -28,5 +29,19 @@ def get_transaction_list(my_file: str) -> list:
     return transaction_list
 
 
+def xls_open(my_file):
+    """Открывает excel файл"""
+    df = pd.read_excel(my_file)
+    return df.head()
+
+
+def csv_open(my_file):
+    """Открывает csv файл"""
+    df = pd.read_csv(my_file)
+    return df.head()
+
+
 if __name__ == "__main__":
     print(get_transaction_list("../data\\operations.json"))
+    print(xls_open("../data/transactions_excel.xlsx"))
+    print(csv_open("../data/transactions.csv"))

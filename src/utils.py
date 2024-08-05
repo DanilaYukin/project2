@@ -41,6 +41,13 @@ def csv_open(my_file):
     return df.head()
 
 
+def json_open(my_file):
+    """Открывает json файл"""
+    with open(my_file, 'r') as file:
+        date = json.load(file)
+        return date
+
+
 if __name__ == "__main__":
     print(get_transaction_list("../data\\operations.json"))
     print(xls_open("../data/transactions_excel.xlsx"))

@@ -32,13 +32,13 @@ def get_transaction_list(my_file: str) -> list:
 def xls_open(my_file):
     """Открывает excel файл"""
     df = pd.read_excel(my_file)
-    return df.head()
+    return df.to_dict()
 
 
 def csv_open(my_file):
     """Открывает csv файл"""
     df = pd.read_csv(my_file)
-    return df.head()
+    return df.to_dict()
 
 
 def json_open(my_file):

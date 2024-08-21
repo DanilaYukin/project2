@@ -1,10 +1,11 @@
 import json
 import logging
 import pandas as pd
+import csv
 
 logger = logging.getLogger('utils')
 logger.setLevel(logging.INFO)
-file_handler = logging.FileHandler('../logs/utils.log', "w", encoding="utf-8")
+file_handler = logging.FileHandler('./logs/utils.log', "w", encoding="utf-8")
 file_formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s: %(message)s')
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)
@@ -32,18 +33,25 @@ def get_transaction_list(my_file: str) -> list:
 def xls_open(my_file):
     """Открывает excel файл"""
     df = pd.read_excel(my_file)
-    return df.to_dict()
+    df_dict = df.to_dict("records")
+
+    return df_dict
 
 
 def csv_open(my_file):
     """Открывает csv файл"""
-    df = pd.read_csv(my_file)
-    return df.to_dict()
+    with open(my_file, encoding="utf-8") as file:
+        reader = csv.DictReader(file, delimiter=";")
+        result = []
+        for row in reader:
+            result.append(row)
+
+    return result
 
 
 def json_open(my_file):
     """Открывает json файл"""
-    with open(my_file, 'r') as file:
+    with open(my_file, encoding="utf-8") as file:
         date = json.load(file)
         return date
 
